@@ -2,7 +2,7 @@
 -- the loading is important
 require("telescope").setup({
   defaults = {
-    layout_strategy = "vertical",
+    -- layout_strategy = "vertical",
     layout_config = {
       vertical = {
         height = 0.9,
@@ -12,6 +12,7 @@ require("telescope").setup({
       -- other layout configuration here
     },
     -- other defaults configuration here
+    file_ignore_patterns = { "node_modules", "build", ".git" },
   },
 
   extensions = {
@@ -42,3 +43,4 @@ require('telescope').load_extension("frecency")
 require("telescope").load_extension("lsp_handlers")
 require("telescope").load_extension("bookmarks")
 require("telescope").load_extension("emoji")
+

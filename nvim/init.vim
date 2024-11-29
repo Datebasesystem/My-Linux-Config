@@ -5,7 +5,7 @@ set autowrite
 autocmd FocusLost,BufLeave * silent! update
 
 " 映射 leader 键为 ,
-let g:mapleader = ','
+" let g:mapleader = ','
 " 将 q 映射为 <leader>q，因为录制宏的操作比较少，而关掉窗口的操作非常频繁
 noremap <leader>q q
 
@@ -61,3 +61,24 @@ let g:gitblame_ignored_filetypes = ['lua', 'markdown', 'sh']
 
 " 因为 nvim-treesitter-textobjects 使用 x 来跳转，原始的 x 被映射为 xx
 nn xx x
+
+
+" clipboard config
+set clipboard+=unnamedplus
+if executable('clipboard-provider')
+  let g:clipboard = {
+          \ 'name': 'myClipboard',
+          \     'copy': {
+          \         '+': 'clipboard-provider copy',
+          \         '*': 'clipboard-provider copy',
+          \     },
+          \     'paste': {
+          \         '+': 'clipboard-provider paste',
+          \         '*': 'clipboard-provider paste',
+          \     },
+          \ }
+endif
+
+
+" split window
+" cg cs
