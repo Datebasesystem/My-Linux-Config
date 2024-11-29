@@ -65,6 +65,12 @@ export PATH="$PATH:~/dotfiles/scripts/bin"
 
 看是否能把my_xxxx 复制到系统剪切板中，如果可以就没问题。
 
+### 安装依赖
+```
+sudo yum install ripgrep    ##  rg
+rg --version
+```
+
 ###  安装本配置
 
 1. 备份

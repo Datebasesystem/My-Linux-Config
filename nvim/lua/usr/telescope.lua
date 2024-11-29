@@ -12,7 +12,20 @@ require("telescope").setup({
       -- other layout configuration here
     },
     -- other defaults configuration here
-    file_ignore_patterns = { "node_modules", "build", ".git", "build-debug", "build-release" },
+     vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--glob', '!**/.git/*',
+      '--glob', '!**/node_modules/*',
+      '--glob', '!**/build/*',
+      '--glob', '!**/.git/*',
+      '--ignore-file', '.gitignore',
+    },
   },
 
   extensions = {
