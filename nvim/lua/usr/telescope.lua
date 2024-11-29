@@ -12,7 +12,7 @@ require("telescope").setup({
       -- other layout configuration here
     },
     -- other defaults configuration here
-    file_ignore_patterns = { "node_modules", "build", ".git" },
+    file_ignore_patterns = { "node_modules", "build", ".git", "build-debug", "build-release" },
   },
 
   extensions = {

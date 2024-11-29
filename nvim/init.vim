@@ -79,6 +79,3 @@ if executable('clipboard-provider')
           \ }
 endif
 
-
-" split window
-" cg cs
