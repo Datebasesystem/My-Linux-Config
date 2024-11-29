@@ -8,6 +8,7 @@
 ## 📚 Document
 
 - [我的 vim 配置](./docs/mynvim.md)
+- [我的 tmux 配置](./docs/mytmux.md)
 - [2024 年 vim 的 C/C++ 配置](./docs/nvim.md)
 - [极简 Tmux 配置](./docs/tmux.md)
 - [Tabby, Tilix, Gnome Terminal, Alacritty 和 Kitty 使用体验对比](./docs/terminals.md)
