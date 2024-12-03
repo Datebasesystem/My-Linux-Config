@@ -80,3 +80,5 @@ if executable('clipboard-provider')
 endif
 
 set wrap 
+
+set relativenumber

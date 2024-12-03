@@ -1,7 +1,7 @@
 local opts = {
   init_options = {
     index = {
-      threads = 0,
+      threads = 10,  -- 设置 ccls 并行度为 10
     },
     clang = {
       excludeArgs = { "-Wall" },
