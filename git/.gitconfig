@@ -33,5 +33,9 @@
     pf = push
 
 [user]
-        email = qingshui@foxmail.com
-        name = qingshui
+    email = qingshui@foxmail.com
+    name = qingshui
+
+[core]
+   editor = nvim
+
