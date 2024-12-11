@@ -419,7 +419,7 @@ tmux_conf_update_plugins_on_reload=false
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 #set -g @continuum-restore 'on'
 
-
+setw -g mode-keys vi
 
 # -- custom variables ----------------------------------------------------------
 
