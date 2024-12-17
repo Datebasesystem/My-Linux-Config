@@ -20,11 +20,13 @@ wk.add({
   { "<leader>8", "<cmd>BufferLineGoToBuffer 8<cr>",                   desc = "jump to buffer 8" },
   { "<leader>9", "<cmd>BufferLineGoToBuffer 9<cr>",                   desc = "jump to buffer 9" },
   { "<leader>F", "<cmd>Telescope git_files<cr>",                      desc = "search files (exclude submodules)" },
-  { "<leader>G", "<cmd>Telescope grep_string<cr>",                    desc = "live grep cursor word" },
   { "<leader>b", "<cmd>Telescope buffers<cr>",                        desc = "searcher buffers" },
   { "<leader>c", "<cmd>Telescope frecency workspace=CWD<cr>",         desc = "search files sort with edit history" },
   { "<leader>f", "<cmd>Telescope find_files<cr>",                     desc = "search files (include submodules)" },
+
   { "<leader>g", "<cmd>Telescope live_grep<cr>",                      desc = "live grep" },
+  { "<leader>G", "<cmd>Telescope grep_string<cr>",                    desc = "live grep cursor word" },
+
   { "<leader>h", "<cmd>Telescope help_tags<cr>",                      desc = "search vim manual" },
   { "<leader>i", "<cmd>Telescope jumplist<cr>",                       desc = "search jumplist" },
   { "<leader>j", "<cmd>Telescope emoji<cr>",                          desc = "search emoji" },
@@ -119,18 +121,6 @@ wk.add({
   { ",s",        "<cmd>sp<cr>",                                          desc = "horizontal split window" },
   { ",u",        "<cmd>UndotreeToggle<cr>",                              desc = "open undo tree" },
 
-  -- { "c",         group = "window" },
-  -- -- i f a t 被 textobject 所使用
-  -- { "cg",        "<cmd>vsp<cr>",                                         desc = "vertical split window" },
-  -- { "ch",        "<C-w>h",                                               desc = "go to the window left" },
-  -- { "cj",        "<C-w>j",                                               desc = "go to the window below" },
-  -- { "ck",        "<C-w>k",                                               desc = "go to the window up" },
-  -- { "cl",        "<C-w>l",                                               desc = "go to the window right" },
-  -- { "cm",        "<cmd>only<cr>",                                        desc = "delete other window" },
-  -- { "cn",        "<cmd>AerialToggle!<cr>",                               desc = "toggle navigator" },
-  -- { "cs",        "<cmd>sp<cr>",                                          desc = "horizontal split window" },
-  -- { "cu",        "<cmd>UndotreeToggle<cr>",                              desc = "open undo tree" },
-
   { "gD",        "<cmd>lua vim.lsp.buf.declaration()<cr>",               desc = "go to declaration" },
   { "gd",        "<cmd>lua vim.lsp.buf.definition()<cr>",                desc = "go to definition" },
   { "gi",        "<cmd>lua vim.lsp.buf.implementation()<cr>",            desc = "go to implementation" },
@@ -149,7 +139,7 @@ wk.add({
     mode = { "v" },
     { "<space>lc", ":Commentary<cr>",                               desc = "comment code" },
     { "<space>s",  group = "search" },
-    { "<space>sp", "<cmd>lua require('spectre').open_visual()<cr>", desc = "search" },
+    { "<space>sP", "<cmd>lua require('spectre').open_visual()<cr>", desc = "search" },
     { "q",         "<cmd>q<cr>",                                    desc = "close window" },
   },
 })
