@@ -67,3 +67,6 @@ require("persisted").setup({
     return true
   end,
 })
+
+-- 连按 Ecs 取消高亮
+vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohlsearch<CR>', { noremap = true, silent = true })
