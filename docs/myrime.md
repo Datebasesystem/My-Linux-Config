@@ -23,3 +23,9 @@ a. mac 中打开application，右键，点击显示包内容
 b. 找到 Contents/info.plist, 打开
 c. 找到配制 CFBundleIdentifier
 d. 按照这个名子，配制其输入法
+
+
+## 技巧
+将mac 的capslock切换输入法禁用，就可以只用 Rime 输入法了
+配制为：
+  使用大写锁定键切换 “ABC” 输入法
