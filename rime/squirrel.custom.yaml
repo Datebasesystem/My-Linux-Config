@@ -1,0 +1,132 @@
+patch:
+  show_notifications_when: appropriate          # 状态通知，适当，也可设为全开（always）全关（never）
+
+  # 方案命名，不能有空格
+  style/color_scheme: jike  
+  preset_color_schemes:
+    mritd_dark:
+      name: 漠然／mritd dark
+      author: mritd <mritd1234@gmail.com>
+      horizontal: true                          # 水平排列
+      inline_preedit: true                      # 单行显示，false双行显示
+      candidate_format: "%c\u2005%@"            # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。
+      corner_radius: 5                          # 候选条圆角
+      hilited_corner_radius: 3                  # 高亮圆角
+      border_height: 6                          # 窗口边界高度，大于圆角半径才生效
+      border_width: 6                           # 窗口边界宽度，大于圆角半径才生效
+      border_color_width: 0
+      #font_face: "PingFangSC"                   # 候选词字体
+      font_point: 16                            # 候选字词大小
+      label_font_point: 14                      # 候选编号大小
+
+      text_color: 0xdedddd                      # 拼音行文字颜色，24位色值，16进制，BGR顺序
+      back_color: 0x4b4b4b                      # 候选条背景色
+      label_color: 0x888785                     # 预选栏编号颜色
+      border_color: 0x4b4b4b                    # 边框色
+      candidate_text_color: 0xffffff            # 预选项文字颜色
+      hilited_text_color: 0xdedddd              # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0x252320              # 高亮拼音 (需要开启内嵌编码)
+      hilited_candidate_text_color: 0xFFE696    # 第一候选项文字颜色
+      hilited_candidate_back_color: 0x4b4b4b    # 第一候选项背景背景色
+      hilited_candidate_label_color: 0xffffff   # 第一候选项编号颜色
+      comment_text_color: 0xdedddd              # 拼音等提示文字颜色
+      #hilited_comment_text_color: 0xdedddd      # 注解文字高亮
+    jike-elegant-new:
+      name: 即刻优雅黄
+      author: Ryekee
+      back_color: 0x444444
+      border_height: 0
+      border_width: 0
+      candidate_format: "%c  %@"
+      candidate_text_color: 0xeeeeee
+      comment_text_color: 0x808080
+      font_face: "Lucida Grande,PingFangSC-Regular"
+      font_point: 18
+      hilited_back_color: 0x444444
+      hilited_candidate_back_color: 0x11E4FF
+      hilited_candidate_label_color: 0x444444
+      hilited_candidate_text_color: 0x444444
+      hilited_comment_text_color: 0x444444
+      hilited_text_color: 0xeeeeee
+      horizontal: false
+      inline_preedit: true
+      label_font_face: "Helvetica"
+      label_font_point: 16
+      line_spacing: 6
+      text_color: 0xc2c2c2
+    jike:
+      name: 即刻黄
+      author: Ryekee
+      back_color: 0x11E4FF
+      border_height: 0
+      border_width: 0
+      candidate_format: "%c  %@"
+      candidate_text_color: 0x362915
+      comment_text_color: 0x000000
+      font_face: "Lucida Grande,PingFangSC-Regular"
+      hilited_candidate_back_color: 0xF4B95F
+      hilited_candidate_text_color: 0xFFFFFF
+      horizontal: false
+      inline_preedit: true
+      label_font_face: "Helvetica"
+      label_font_point: 16
+      line_spacing: 6
+      text_color: 0xFFFFFF
+
+  ## language change setting
+  # "app_options/com.runningwithcrayons.Alfred-3/ascii_mode": true
+  # 自定義 Mac 應用程序的初始轉換狀態，首先查看應用的 Info.plist 文件得到 該應用的 Bundle Identifier，通常是形如 com.apple.Xcode 的字符串。
+  # CFBundleIdentifier
+  app_options:
+    com.apple.finder:
+        ascii_mode: true
+    com.apple.Spotlight:
+        ascii_mode: true
+    com.apple.dock.ecti:
+        ascii_mode: true
+    com.apple.Safari:
+        ascii_mode: true
+    com.apple.systempreferences:
+        ascii_mode: true
+    com.apple.Terminal:
+        ascii_mode: true
+    com.apple.Dictionary:
+        ascii_mode: true
+    com.google.Chrome:
+        ascii_mode: true
+    org.mozilla.firefox:
+        ascii_mode: true
+    com.github.atom:
+        ascii_mode: true
+    com.microsoft.VSCode:
+        ascii_mode: true
+    com.jetbrains.WebStorm:
+        ascii_mode: true
+    com.jetbrains.PhpStorm:
+        ascii_mode: true
+    com.bohemiancoding.sketch3:
+        ascii_mode: true
+    com.adobe.Photoshop:
+        ascii_mode: true
+    com.colliderli.iina:
+        ascii_mode: true
+    com.hicknhacksoftware.MacPass:
+        ascii_mode: true
+    net.freemacsoft.AppCleaner:
+        ascii_mode: true
+    com.qiuyuzhou.ShadowsocksX-NG:
+        ascii_mode: true
+    com.initex.proxifier.macosx:
+        ascii_mode: true
+    com.runningwithcrayons.Alfred-3:
+        ascii_mode: true
+    com.runningwithcrayons.Alfred:
+        ascii_mode: true
+    com.piezo.Translate-Tab:
+        ascii_mode: true
+    org.rehabman.github.MaciASLv1.31:
+        ascii_mode: true
+    com.googlecode.iterm2:
+        ascii_mode: true
+    com.happenapps.Quiver:
+        ascii_mode: true
