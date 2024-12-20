@@ -77,6 +77,7 @@ patch:
   # "app_options/com.runningwithcrayons.Alfred-3/ascii_mode": true
   # 自定義 Mac 應用程序的初始轉換狀態，首先查看應用的 Info.plist 文件得到 該應用的 Bundle Identifier，通常是形如 com.apple.Xcode 的字符串。
   # CFBundleIdentifier
+  # 说明：https://github.com/rime/home/wiki/CustomizationGuide#%E4%B8%80%E4%BE%8B%E5%AE%9A%E8%A3%BD%E5%B0%8F%E7%8B%BC%E6%AF%AB%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88
   app_options:
     com.apple.finder:
         ascii_mode: true
@@ -130,3 +131,7 @@ patch:
         ascii_mode: true
     com.happenapps.Quiver:
         ascii_mode: true
+    com.tencent.xinWeChat:
+        ascii_mode: false
+    com.tencent.WeWorkMac:
+        ascii_mode: false
