@@ -43,15 +43,15 @@ use_preset_vocabulary: true
 
 import_tables:
   - luna_pinyin
-  - luna_pinyin.sougou
-  - luna_pinyin.sogou
-  - luna_pinyin.poetry
-  - luna_pinyin.cn_en
-  - luna_pinyin.kaomoji
-  - luna_pinyin.computer
-  - luna_pinyin.emoji
-  - luna_pinyin.sgmain
-  - luna_pinyin.extended
+  # - luna_pinyin.sougou
+  # - luna_pinyin.sogou
+  # - luna_pinyin.poetry
+  # - luna_pinyin.cn_en
+  # - luna_pinyin.kaomoji
+  # - luna_pinyin.computer
+  # - luna_pinyin.emoji
+  # - luna_pinyin.sgmain
+  # - luna_pinyin.extended
   - luna_pinyin.myrime
 ...
 
@@ -8556,7 +8556,6 @@ import_tables:
 察出
 察到的
 察的
-察看期
 察納雅言
 衩襪步香階
 岔道口
@@ -49096,7 +49095,6 @@ import_tables:
 留下陰影
 留下印象
 留香
-留校察看
 留心着
 留信
 留言薄
@@ -110127,7 +110125,6 @@ import_tables:
 諮詢中心
 仔女
 仔細查看
-仔細察看
 仔細打量
 仔細的
 仔細端詳
