@@ -10,14 +10,7 @@
 # 於重新部署後生效
 # no comment
 
----
-name: luna_pinyin.myrime
-version: "2024.12.20"
-sort: by_weight
-use_preset_vocabulary: true
-...
-
-抱抱 bb
-宝宝 bb
-溜了 ll
-查看 cha kan
+抱抱 bb 1
+宝宝 bb 2
+溜了 ll 1
+查看 ck 1

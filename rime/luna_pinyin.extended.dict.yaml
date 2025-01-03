@@ -43,6 +43,8 @@ use_preset_vocabulary: true
 
 import_tables:
   - luna_pinyin
+  - luna_pinyin.myrime
+...
   # - luna_pinyin.sougou
   # - luna_pinyin.sogou
   # - luna_pinyin.poetry
@@ -52,8 +54,6 @@ import_tables:
   # - luna_pinyin.emoji
   # - luna_pinyin.sgmain
   # - luna_pinyin.extended
-  - luna_pinyin.myrime
-...
 
 
 阿巴多
