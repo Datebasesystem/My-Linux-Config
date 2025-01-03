@@ -82,3 +82,4 @@ endif
 set wrap 
 
 set relativenumber
+

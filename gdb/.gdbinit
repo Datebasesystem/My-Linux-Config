@@ -9,6 +9,9 @@ set print element 10000
 set mi-async 1
 set non-stop on
 
+# gdb child progress, not gurd progress 
+# please reference to https://www.nebula-graph.io/posts/how-to-read-nebula-graph-source-code
+set follow-fork-mode child
 
 #                                                                                                        
 #   STL GDB evaluators/views/utilities - 1.03

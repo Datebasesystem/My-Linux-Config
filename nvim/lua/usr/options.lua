@@ -16,6 +16,7 @@ local options = {
   updatetime = 300, -- faster completion (4000ms default)
   writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   cursorline = true, -- highlight the current line
+  cursorcolumn = true,  -- highlight the current column
   number = true, -- set numbered lines
 
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
