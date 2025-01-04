@@ -62,6 +62,8 @@ wk.add({
   { "<space>fo", "<cmd>NvimTreeFindFile<cr>",                         desc = "open file in dir" },
   { "<space>fs", "<cmd>w<cr>",                                        desc = "save file" },
   { "<space>ft", "<cmd>NvimTreeToggle<cr>",                           desc = "toggle file tree" },
+  { "<space>ff", "<cmd>lua CopyFilePathToClipboard()<cr>",            desc = "toggle file tree" },
+
   { "<space>g",  group = "git" },
   { "<space>ga", "<cmd>Git add -A<cr>",                               desc = "git stage all changes" },
   { "<space>gb", "<cmd>Git blame<cr>",                                desc = "git blame" },
@@ -75,7 +77,7 @@ wk.add({
   { "<space>la", "<cmd>lua vim.lsp.buf.code_action()<cr>",            desc = "code action" },
   { "<space>lc", "<cmd>Commentary<cr>",                               desc = "comment code" },
   -- { "<space>lf", "<cmd> lua vim.lsp.buf.format{ async = true }<cr>",  desc = "format current buffer" },
-  { "<space>lf", "<cmd>lua vim.notify('Please use VISIUAL mode!', vim.log.levels.WARN)<cr>", desc = "format current buffer" },
+  { "<space>lf", "<cmd>lua ExecuteGitDiffClangFormat()<cr>",          desc = "Format current workspace" },
   { "<space>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", desc = "lsp goto next" },
   { "<space>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", desc = "lsp goto prev" },
   { "<space>ln", "<cmd>lua vim.lsp.buf.rename()<cr>",                 desc = "rename" },
@@ -187,4 +189,38 @@ function RunRust()
   vim.keymap.set("n", "<leader>R", function()
     vim.cmd.RustLsp("runnables")
   end, { silent = true, buffer = bufnr })
+end
+
+function CopyFilePathToClipboard()
+  local path = vim.fn.expand('%:p')
+  vim.fn.setreg('+', path)
+  print("Copied file path to clipboard: ".. path)
+end
+
+function ExecuteGitDiffClangFormat()
+  local gitdir = vim.fn.finddir(".git", vim.fn.expand "%:p" .. ";")
+  local gitignore_dir = vim.fn.fnamemodify(gitdir, ":h")
+  if gitignore_dir ~= "" then
+    local current_dir = vim.fn.getcwd()
+    vim.fn.chdir(gitignore_dir)
+    -- debug: print current dir
+    -- vim.api.nvim_command('echo getcwd()')
+    local command = "git diff -U0 --no-color HEAD^ | clang-format-diff.py -p1 -i"
+    vim.fn.system(command)
+    local result = vim.fn.system(command)
+    -- 检查命令是否执行成功
+    if vim.v.shell_error == 0 then
+      -- debug
+      print("Foramt Success")
+    else
+      print("Error running command: " .. command)
+      -- print("Error code: " .. vim.v.shell_error)
+      -- print("Error output:")
+      print(result)
+    end
+    vim.fn.chdir(current_dir)
+    vim.api.nvim_command("checktime")
+  else
+    print(".git directory not found")
+  end
 end
