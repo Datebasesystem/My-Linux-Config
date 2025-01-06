@@ -38,6 +38,8 @@ wk.add({
   -- leader t : markdown table mode
   -- leader x used for map language specific function
   -- " 使用 <leader> [number] 切换到第 [number] 个 window
+  { "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>",                 desc = "rename" },
+
   { "<space>0",  "<cmd>10wincmd w <cr>",                              desc = "jump to window 0" },
   { "<space>1",  "<cmd>1wincmd w <cr>",                               desc = "jump to window 1" },
   { "<space>2",  "<cmd>2wincmd w <cr>",                               desc = "jump to window 2" },
