@@ -54,7 +54,7 @@ export PATH="/data/ssd1/user/ccls_pack/ccls/build/Release/bin:$PATH"
 export PATH="/data/ssd1/user/neovim/bin:$PATH"
 export PATH="/data/ssd1/user/mysql/mysql-build/bin:$PATH"
 export LD_LIBRARY_PATH=/opt/toolset/gcc/7.5.0/lib64:$LD_LIBRARY_PATH
-export PS1="[\[\e[1;35m\]\u\[\e[0m\]@\[\e[1;35m\]\h\[\e[0m\]:\[\e[1;36m\]\t\[\e[0m\] \[\e[1;32m\]\${PWD}/\[\e[0m\]]\n\[\e[1;34m\]$ \[\e[0m\]"
+export PS1="[\[\e[1;35m\]\u\[\e[0m\]@\[\e[1;35m\]\h\[\e[0m\]:\[\e[1;36m\]\D{%Y-%m-%d %H:%M:%S}\[\e[0m\] \[\e[1;32m\]\${PWD}/\[\e[0m\]]\n\[\e[1;34m\]$ \[\e[0m\]"
 
 base_dir_1=/data/ssd1/user/table_1/BIN
 alias pp="ps -ef | grep -v grep | grep -v gdb | grep ${base_dir_1}"
