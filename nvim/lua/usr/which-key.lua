@@ -64,7 +64,7 @@ wk.add({
   { "<space>fo", "<cmd>NvimTreeFindFile<cr>",                         desc = "open file in dir" },
   { "<space>fs", "<cmd>w<cr>",                                        desc = "save file" },
   { "<space>ft", "<cmd>NvimTreeToggle<cr>",                           desc = "toggle file tree" },
-  { "<space>ff", "<cmd>lua CopyFilePathToClipboard()<cr>",            desc = "toggle file tree" },
+  { "<space>ff", "<cmd>lua GetRootPath()<cr>",                        desc = "toggle file tree" },
 
   { "<space>g",  group = "git" },
   { "<space>ga", "<cmd>Git add -A<cr>",                               desc = "git stage all changes" },
@@ -139,7 +139,9 @@ wk.add({
   { "md", "<cmd>lua require'bookmarks.list'.delete_on_virt()<cr>", desc = "delete bookmark at virt text line" },
   { "mm", "<cmd>lua require'bookmarks'.add_bookmarks()<cr>",       desc = "add bookmarks" },
   { "mn", "<cmd>lua require'bookmarks.list'.show_desc() <cr>",     desc = "show bookmark note" },
+
   { "q",  "<cmd>q<cr>",                                            desc = "close window" },
+  { "<F7>", "<cmd>lua BuildCpp()<cr>",                          desc = "Make"},
 })
 
 wk.add({
@@ -196,10 +198,69 @@ function RunRust()
   end, { silent = true, buffer = bufnr })
 end
 
-function CopyFilePathToClipboard()
-  local path = vim.fn.expand('%:p')
-  vim.fn.setreg('+', path)
-  print("Copied file path to clipboard: ".. path)
+function GetRootPath()
+    local relative_path
+     -- 获取当前文件的绝对路径
+    local current_file = vim.fn.expand('%:p')
+    -- 获取当前文件所在目录
+    local current_dir = vim.fn.fnamemodify(current_file, ':h')
+    local git_dir = nil
+    -- 逐级向上查找.git 目录
+    while true do
+        local possible_git_dir = current_dir .. '/.git'
+        if vim.fn.isdirectory(possible_git_dir) == 1 then
+            git_dir = current_dir
+            break
+        end
+        -- 如果已经到达根目录，停止查找
+        if current_dir == '/' then
+            break
+        end
+        -- 向上一级目录移动
+        current_dir = vim.fn.fnamemodify(current_dir, ':h')
+    end
+    -- 如果找到了.git 目录
+    if git_dir then
+        -- 计算相对路径
+        relative_path = string.gsub(current_file, '^' .. git_dir, '')
+        print(relative_path)
+        vim.fn.setreg('+', relative_path)
+    else
+        print("No .git directory found in the path.")
+    end
+    return git_dir
+end
+
+function BuildCpp()
+  local rootDir = GetRootPath()
+  if not rootDir then
+    return
+  end
+
+  -- 构建 build 目录的路径
+  local build_dir = rootDir .. "/build"
+
+  -- 检查 build 目录是否存在
+  local f = io.open(build_dir, "r")
+  if not f then
+      print("build 目录不存在: " .. build_dir)
+      return
+  else
+      f:close()
+  end
+
+  -- 拼接进入 build 目录并执行 make -j10 的命令
+  local command = string.format("cd %s && make -j10 > build.log 2>&1 &; send complete;", build_dir)
+
+  -- 执行命令
+  local handle = io.popen(command)
+  if handle then
+      local output = handle:read("*a")
+      handle:close()
+      print(output)
+  else
+      print("无法执行命令: " .. command)
+  end
 end
 
 function ExecuteGitDiffClangFormat()
